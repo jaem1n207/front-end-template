@@ -17,6 +17,7 @@ function component() {
   const element = document.createElement('div');
 
   element.innerHTML = `<div>${sayHello('jm')}</div>`;
+  console.log(boldTagName);
 
   return element;
 }
