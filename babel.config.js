@@ -12,7 +12,6 @@ module.exports = {
     ],
   ],
   plugins: [
-    'transform-remove-console',
     // 전역 스코프 오염 x
     [
       '@babel/plugin-transform-runtime',
