@@ -1,0 +1,43 @@
+{
+  "name": "vanilla-js-bundle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaem1n207/bundle-vanilla-js"
+  },
+  "keywords": [
+    "boilerplate"
+  ],
+  "author": "Jaemin",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack serve --mode=production",
+    "start:dev": "webpack serve --mode=development",
+    "build": "webpack --mode=production",
+    "build:dev": "webpack --mode=development"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.14.7",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "node-sass": "^6.0.1",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.3.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs3": "^7.17.9",
+    "core-js": "^3.21.1"
+  }
+}
