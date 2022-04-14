@@ -67,6 +67,7 @@ module.exports = function (webpackEnv) {
     mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
     entry: {
       main: paths.appIndexJs,
+      // main: paths.appHtml,
     },
     output: {
       path: paths.appBuild,
@@ -90,9 +91,13 @@ module.exports = function (webpackEnv) {
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.(js)$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
+        },
+        {
+          test: /\.html$/i,
+          loader: 'html-loader',
         },
         {
           test: /\.(png|jp(e*)g|svg|gif)$/,
