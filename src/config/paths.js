@@ -21,7 +21,7 @@ const moduleFileExtensions = [
   'jsx',
 ];
 
-// webpack과 같은 순서로 파일 경로를 해결
+// webpack과 같은 순서로 파일 경로 resolve
 const resolveModule = (resolveFn, filePath) => {
   const extension = moduleFileExtensions.find((extension) => fs.existsSync(resolveFn(`${filePath}.${extension}`)));
 

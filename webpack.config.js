@@ -15,6 +15,13 @@ module.exports = function (webpackEnv) {
   const isEnvProduction = process.env.NODE_ENV === 'production';
 
   const plugins = [
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [
+        '**/*',
+        // build 폴더 안의 모든 것을 지우도록 설정
+        path.resolve(process.cwd(), 'build/**/*'),
+      ],
+    }),
     new HtmlWebpackPlugin(
       Object.assign(
         {},
@@ -46,13 +53,6 @@ module.exports = function (webpackEnv) {
     ),
     new webpack.BannerPlugin(banner),
     new webpack.DefinePlugin({ NODE_ENV: process.env.NODE_ENV || 'development' }),
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [
-        '**/*',
-        // build 폴더 안의 모든 것을 지우도록 설정
-        path.resolve(process.cwd(), 'build/**/*'),
-      ],
-    }),
   ];
 
   isEnvProduction &&
@@ -70,7 +70,9 @@ module.exports = function (webpackEnv) {
     },
     output: {
       path: paths.appBuild,
-      filename: isEnvProduction ? 'static/js/[name].[contenthash:8].js' : isEnvDevelopment && 'static/js/bundle.js',
+      filename: isEnvProduction
+        ? 'static/js/[name].[contenthash:8].js'
+        : isEnvDevelopment && 'static/js/[name].[hash].bundle.js',
       chunkFilename: isEnvProduction
         ? 'static/js/[name].[contenthash:8].chunk.js'
         : isEnvDevelopment && 'static/js/[name].chunk.js',
@@ -93,11 +95,10 @@ module.exports = function (webpackEnv) {
           loader: 'babel-loader',
         },
         {
-          test: /\.(png|jp(e*)g|svg)$/,
+          test: /\.(png|jp(e*)g|svg|gif)$/,
           loader: 'file-loader',
           options: {
-            publicPath: './dist/',
-            name: '[name].[ext]?[hash]',
+            name: 'static/media/[name].[hash].[ext]',
           },
         },
         {
@@ -122,6 +123,21 @@ module.exports = function (webpackEnv) {
           },
         }),
       ],
+      // 참고: https://webpack.kr/plugins/split-chunks-plugin/#optimizationsplitchunks
+      splitChunks: {
+        cacheGroups: {
+          commons: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+        },
+        chunks: 'all',
+      },
+      // 런타임 따로 분리
+      runtimeChunk: {
+        name: 'runtime',
+      },
     },
   };
 };
