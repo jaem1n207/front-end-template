@@ -12,8 +12,6 @@
 - Handlebars
 - Tailwind
 
-examples 폴더 참고해주세요
-
 ## Start
 ```
 $ yarn
