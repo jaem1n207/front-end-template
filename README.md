@@ -7,6 +7,12 @@
 - Babel
 - ESLint
 - Prettier
+- Axios
+- Font-awesome
+- Handlebars
+- Tailwind
+
+examples 폴더 참고해주세요
 
 ## Start
 ```
@@ -18,20 +24,6 @@ $ yarn start
 
 ```
 $ yarn build
-```
-
-## 구조
-
-```sh
-├─ public
-│  └─ index.html
-├─ src
-│  ├─ config
-│  │  └─ banner.js, paths.js
-│  └─ index.js
-└─ webpack.config.js
-   babel.config.js
-   package.json
 ```
 
 ## Contributor
