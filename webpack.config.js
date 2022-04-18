@@ -10,7 +10,7 @@ const paths = require('./src/config/paths');
 
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 
-module.exports = function (webpackEnv) {
+module.exports = function () {
   const isEnvDevelopment = process.env.NODE_ENV === 'development';
   const isEnvProduction = process.env.NODE_ENV === 'production';
 
@@ -23,6 +23,7 @@ module.exports = function (webpackEnv) {
       ],
     }),
     new HtmlWebpackPlugin(
+      // eslint-disable-next-line prefer-object-spread
       Object.assign(
         {},
         {
@@ -55,6 +56,7 @@ module.exports = function (webpackEnv) {
     new webpack.DefinePlugin({ NODE_ENV: process.env.NODE_ENV || 'development' }),
   ];
 
+  // eslint-disable-next-line no-unused-expressions
   isEnvProduction &&
     plugins.push(
       new MiniCssExtractPlugin({
@@ -83,6 +85,7 @@ module.exports = function (webpackEnv) {
       port: 9000,
       historyApiFallback: true,
     },
+    // eslint-disable-next-line no-nested-ternary
     devtool: isEnvProduction
       ? shouldUseSourceMap
         ? 'source-map'
