@@ -1,11 +1,10 @@
-'use strict';
-
+/* eslint-disable implicit-arrow-linebreak */
 const path = require('path');
 const fs = require('fs');
 
 // 프로젝트 폴더의 심볼릭 링크가 해결되었는지 확인
 const appDirectory = fs.realpathSync(process.cwd());
-const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
+const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 const moduleFileExtensions = [
   'web.mjs',
@@ -23,7 +22,12 @@ const moduleFileExtensions = [
 
 // webpack과 같은 순서로 파일 경로 resolve
 const resolveModule = (resolveFn, filePath) => {
-  const extension = moduleFileExtensions.find((extension) => fs.existsSync(resolveFn(`${filePath}.${extension}`)));
+  const extension = moduleFileExtensions.find(
+    _extension =>
+      // eslint-disable-next-line comma-dangle
+      fs.existsSync(resolveFn(`${filePath}.${_extension}`))
+    // eslint-disable-next-line function-paren-newline
+  );
 
   if (extension) {
     return resolveFn(`${filePath}.${extension}`);
