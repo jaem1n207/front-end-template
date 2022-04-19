@@ -4,7 +4,260 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= env %>webview</title>
+    <meta name="description" content="Vanilla JS Webview Template in Realworld App" />
+    <title><%= title %> WebView</title>
+    <!-- CSS 연기 기법 참고: https://web.dev/i18n/ko/defer-non-critical-css/ -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+      integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN"
+      crossorigin="anonymous"
+    />
   </head>
-  <body></body>
+
+  <body>
+    <style>
+      .reset-button {
+        background: none;
+        border: 0;
+        padding: 0;
+        outline: none;
+        cursor: pointer;
+      }
+
+      .full-width {
+        width: 100%;
+        flex-grow: 1;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      /* 배경 CSS 커스텀 영역 */
+      body {
+        /* background-image: var(--body-background-img); */
+        /* 👈  배경 이미지를 넣고 싶을때 이 부분 활성화시키고 background-color를 비활성화 시켜주세요 */
+        background-color: var(--body-background-color);
+        /* 👈  배경 색상을 넣고 싶을때 이 부분 활성화시키고 background-image를 비활성화 시켜주세요 */
+      }
+
+      :root {
+        --body-background-color: var(
+          --white
+        ); /* 👈 배경 색상 지정 -> var(--white)을 지우고 #fff;와 같은 방식으로 지정하시면 됩니다! */
+
+        --body-background-img: url('https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_960_720.jpg'); /* 👈 백그라운드 이미지 파일 url */
+      }
+      /* 배경 CSS 커스텀 영역 끝 */
+
+      /* color */
+      :root {
+        --primary: #c869ff;
+        --white: #fff;
+        --black: #000;
+        --gray-100: #626262;
+        --icon-default-color: var(--gray-100);
+      } /* font */
+      :root {
+        --font-size-xxl: 26px;
+        --font-size-xl: 21px;
+        --font-size-lg: 20px;
+        --font-size-base: 18px;
+        --font-size-sm: 16px;
+        --font-size-xs: 14px;
+
+        --font-weight-bold: 700;
+        --font-weight-medium: 500;
+        --font-weight-regular: 400;
+
+        --line-height-loose: 32px;
+        --line-height-relaxed: 28px;
+        --line-height-base: 24px;
+        --line-height-snug: 20px;
+        --line-height-tight: 16px;
+      } /* icon */
+      :root {
+        --icon-default-size: 24px;
+      } /* button */
+      :root {
+        --padding-m-button: 12px 16px;
+        --border-radius-button: 30px;
+        --box-shadow-button: 0px 4px 10px rgba(0, 0, 0, 0.15);
+      }
+      /* modal */
+      :root {
+        --padding-modal: 24px 16px;
+        --border-radius-modal: 16px;
+      }
+      /* z-index */
+      :root {
+        --z-index-backdrop: 20;
+        --z-index-modal: 30;
+      }
+
+      /* button */
+      .btn-m-size {
+        padding: var(--padding-m-button);
+        border-radius: var(--border-radius-button);
+      }
+
+      .btn-shadow {
+        box-shadow: var(--box-shadow-button);
+      }
+
+      .type-primary {
+        background-color: var(--primary);
+        color: var(--white);
+      }
+
+      .type-outlined {
+        background-color: var(--white);
+        color: var(--black);
+      }
+
+      /* header */
+      .header-container {
+        position: absolute;
+        top: 8px;
+        left: 20px;
+      }
+
+      .close-button {
+        padding: 8px;
+        font-size: var(--icon-default-size);
+        color: var(--icon-default-color);
+      }
+
+      /* contents */
+      .contents {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 640px;
+        height: calc(100% - 64px);
+      }
+
+      /* 하단 버튼 */
+      .btn-wrapper {
+        padding: 0 16px 16px;
+        display: flex;
+        gap: 8px;
+      }
+
+      .btn-wrapper > .optional-btn {
+        min-width: 30%;
+      }
+
+      /* 모달 */
+      .backdrop {
+        position: fixed;
+        display: block;
+        inset: 0px;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: var(--z-index-backdrop);
+      }
+
+      .modal-container {
+        visibility: hidden;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        inset: 0;
+
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+
+      .modal-contents {
+        width: 500px;
+        max-width: 90%;
+        background-color: var(--white);
+        border-radius: var(--border-radius-modal);
+        padding: var(--padding-modal);
+        z-index: var(--z-index-modal);
+      }
+
+      .modal-heading {
+        margin-bottom: 24px;
+        color: var(--black);
+      }
+
+      .show-modal {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      /* ios 노치 대응 */
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        margin-top: env(safe-area-inset-top);
+        margin-bottom: env(safe-area-inset-bottom);
+      }
+
+      .header {
+        padding-top: calc(env(safe-area-inset-top) + 8px);
+        padding-left: calc(env(safe-area-inset-left) + 20px);
+      }
+
+      .footer {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+    </style>
+
+    <div id="root"></div>
+
+    <script>
+      /// Library Start ///
+      window.RealWorld = {
+        invoke(name, ...params) {
+          let callName = name;
+          if (window.webkit && window.webkit.messageHandlers) {
+            if (params.length === 0) {
+              window.webkit.messageHandlers[callName].postMessage('');
+            } else {
+              window.webkit.messageHandlers[callName].postMessage(...params);
+            }
+          } else if (window.Android) {
+            if (params.length === 0) {
+              window.Android[callName]();
+            } else {
+              window.Android[callName](...params);
+            }
+          }
+        },
+        closePage() {
+          window.RealWorld.invoke('closePage');
+        },
+        submitAction(input) {
+          window.RealWorld.invoke('submitAction', input);
+        },
+      };
+      function submitAction() {
+        window.RealWorld.submitAction('');
+      }
+      function closePage() {
+        window.RealWorld.closePage();
+      }
+
+      window.RealWorldWebView = {
+        userName: 'hello',
+      };
+      /// Library End ///
+    </script>
+  </body>
 </html>

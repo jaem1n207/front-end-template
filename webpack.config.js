@@ -29,7 +29,7 @@ module.exports = function () {
         {
           inject: true,
           template: paths.appHtml,
-          templateParameters: { env: isEnvProduction ? '' : '(개발모드)' },
+          templateParameters: { title: isEnvProduction ? '' : '(개발모드)' },
           // 정적 파일을 불러올 때 쿼리문자열에 웹팩 해쉬값을 추가 (브라우저에게 새로운 버전이 있음을 알려주기 위함)
           hash: true,
         },
@@ -98,10 +98,10 @@ module.exports = function () {
           exclude: /node_modules/,
           loader: 'babel-loader',
         },
-        {
-          test: /\.html$/i,
-          loader: 'html-loader',
-        },
+        // {
+        //   test: /\.html$/i,
+        //   loader: 'html-loader',
+        // },
         {
           test: /\.(png|jp(e*)g|svg|gif)$/,
           loader: 'file-loader',
