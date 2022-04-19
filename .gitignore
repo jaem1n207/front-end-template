@@ -2,6 +2,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,yarn,react
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,visualstudiocode,yarn,react
 
+public/
+
 build/
 
 ### macOS ###
