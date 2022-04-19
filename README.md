@@ -8,10 +8,12 @@
 - Babel
 - ESLint
 - Prettier
-- Axios
-- Font-awesome
+- Router
+- State Container
 - Handlebars
 - Tailwind
+- Axios
+- Font-awesome
 
 ## Start
 
