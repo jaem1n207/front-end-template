@@ -1,25 +1,18 @@
-import './style.css';
+import Router from './core/router';
+import Store from './store';
+import CastList from './page/cast-list';
+import CastDetail from './page/cast-detail';
+import PageNotFound from './page/page-not-found';
 
-import bold, { boldTagName } from './bold';
-import italic, { italicTagName } from './italic';
+const store = new Store();
 
-let isBold = true;
+const router = new Router();
 
-function sayHello(name) {
-  const formatter = isBold ? bold : italic;
+const castList = new CastList('root', { store });
+const castDetail = new CastDetail('root', { store });
+const pageNotFound = new PageNotFound('root');
 
-  isBold = !isBold;
+router.setDefaultPage(castList);
+router.setNotFoundPage(pageNotFound);
 
-  return `Hello! ${formatter(name)}!`;
-}
-
-function component() {
-  const element = document.createElement('div');
-
-  element.innerHTML = `<div>${sayHello('jm')}</div>`;
-  console.log(boldTagName);
-
-  return element;
-}
-
-document.body.appendChild(component());
+router.addRoutePath('/cast/', castDetail, /cast\/(\d+)/);
