@@ -6,5 +6,6 @@ module.exports = function banner() {
   const user = childProcess.execSync('git config user.name');
   const date = new Date().toLocaleString();
 
+  // eslint-disable-next-line no-useless-concat
   return `commitVersion: ${commit}` + `Build Date: ${date}\n` + `Author: ${user}`;
 };
