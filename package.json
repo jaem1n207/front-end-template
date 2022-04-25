@@ -59,10 +59,10 @@
     "webpack-dev-server": "4.8.1"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "^7.17.9",
-    "axios": "^0.26.1",
-    "core-js": "^3.21.1",
-    "dotenv": "^16.0.0"
+    "@babel/runtime-corejs3": "7.17.9",
+    "axios": "0.26.1",
+    "core-js": "3.21.1",
+    "dotenv": "16.0.0"
   },
   "config": {
     "commitizen": {
