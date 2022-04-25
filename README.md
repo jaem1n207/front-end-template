@@ -6,6 +6,7 @@
 
 - Webpack 5
 - Babel
+- Renovate
 - ESLint
 - Prettier
 - Router
