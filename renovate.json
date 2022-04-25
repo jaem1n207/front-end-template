@@ -1,5 +1,11 @@
 {
-  "extends": [
-    "config:base"
+  "rangeStrategy": "pin",
+  "baseBranches": ["dependency-updates"],
+  "extends": [":timezone(Asia/Seoul)", ":label(renovate)", "config:base"],
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
   ]
 }
