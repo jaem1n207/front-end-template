@@ -14,13 +14,10 @@
   "scripts": {
     "start": "NODE_ENV=development webpack serve --open",
     "build": "NODE_ENV=production webpack",
-    "type-check": "tsc",
-    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js)\"",
+    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(js)\"",
     "lint-staged": "lint-staged",
-    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js)\" --write",
-    "push-master": "push-master",
+    "format": "prettier --ignore-path .gitignore \"src/**/*.+(js)\" --write",
     "prepare": "husky install",
-    "test": "jest",
     "commit": "cz"
   },
   "lint-staged": {
