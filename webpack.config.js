@@ -134,21 +134,6 @@ module.exports = function () {
           },
         }),
       ],
-      // 참고: https://webpack.kr/plugins/split-chunks-plugin/#optimizationsplitchunks
-      splitChunks: {
-        cacheGroups: {
-          commons: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all',
-          },
-        },
-        chunks: 'all',
-      },
-      // 런타임 따로 분리
-      runtimeChunk: {
-        name: 'runtime',
-      },
     },
   };
 };
