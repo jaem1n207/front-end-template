@@ -20,7 +20,7 @@
 - Font-awesome
 
 ## Start
-example 폴더는 제거해주셔도 됩니다.
+example 폴더는 제거해주셔도 됩니다. <br />
 Node.js 버전은 12(LTS)이상을 권장드립니다.
 
 ```
