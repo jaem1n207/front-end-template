@@ -32,7 +32,7 @@
     "@babel/preset-env": "7.16.11",
     "@commitlint/cli": "16.2.3",
     "@commitlint/config-conventional": "16.2.1",
-    "babel-loader": "8.2.4",
+    "babel-loader": "8.2.5",
     "clean-webpack-plugin": "4.0.0",
     "commitizen": "4.2.4",
     "css-loader": "6.7.1",
