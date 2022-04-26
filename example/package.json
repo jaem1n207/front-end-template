@@ -1,0 +1,53 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaem1n207/bundle-vanilla-js"
+  },
+  "keywords": [
+    "boilerplate"
+  ],
+  "author": "@jaem1n207 (roy.jm.lee@gmail.com)",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=development webpack serve --open",
+    "build": "NODE_ENV=production webpack",
+    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(js)\"",
+    "format": "prettier --ignore-path .gitignore \"src/**/*.+(js)\" --write"
+  },
+  "devDependencies": {
+    "@babel/core": "7.17.9",
+    "@babel/plugin-transform-runtime": "7.17.0",
+    "@babel/preset-env": "7.16.11",
+    "babel-loader": "8.2.5",
+    "clean-webpack-plugin": "4.0.0",
+    "css-loader": "6.7.1",
+    "eslint": "8.14.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "file-loader": "6.2.0",
+    "html-loader": "3.1.0",
+    "html-webpack-plugin": "5.5.0",
+    "lint-staged": "12.4.0",
+    "mini-css-extract-plugin": "2.6.0",
+    "node-sass": "7.0.1",
+    "prettier": "2.6.2",
+    "sass-loader": "12.6.0",
+    "style-loader": "3.3.1",
+    "terser-webpack-plugin": "5.3.1",
+    "url-loader": "4.1.1",
+    "webpack": "5.72.0",
+    "webpack-cli": "4.9.2",
+    "webpack-dev-server": "4.8.1"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs3": "7.17.9",
+    "axios": "0.26.1",
+    "core-js": "3.22.2",
+    "dotenv": "16.0.0"
+  }
+}
