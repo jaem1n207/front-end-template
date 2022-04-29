@@ -34,8 +34,8 @@
     "@babel/core": "7.17.9",
     "@babel/plugin-transform-runtime": "7.17.0",
     "@babel/preset-env": "7.16.11",
-    "@commitlint/cli": "16.2.3",
-    "@commitlint/config-conventional": "16.2.1",
+    "@commitlint/cli": "16.2.4",
+    "@commitlint/config-conventional": "16.2.4",
     "babel-loader": "8.2.5",
     "clean-webpack-plugin": "4.0.0",
     "commitizen": "4.2.4",
@@ -50,7 +50,7 @@
     "html-loader": "3.1.0",
     "html-webpack-plugin": "5.5.0",
     "husky": "7.0.4",
-    "lint-staged": "12.4.0",
+    "lint-staged": "12.4.1",
     "mini-css-extract-plugin": "2.6.0",
     "node-sass": "7.0.1",
     "prettier": "2.6.2",
@@ -64,7 +64,7 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "7.17.9",
-    "axios": "0.26.1",
+    "axios": "0.27.2",
     "core-js": "3.22.2",
     "dotenv": "16.0.0"
   },
