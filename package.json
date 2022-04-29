@@ -1,14 +1,17 @@
 {
-  "name": "vanilla-js-bundle",
+  "name": "front-end-boilerplate",
   "version": "1.0.0",
   "main": "index.js",
+  "description": "웹 사이트를 빠르게 구축하기 위한 front-end template입니다.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaem1n207/bundle-vanilla-js"
+    "url": "https://github.com/jaem1n207/front-end-template.git"
   },
   "keywords": [
-    "boilerplate"
+    "boilerplate",
+    "javascript"
   ],
+  "bugs": "https://github.com/jaem1n207/front-end-template/issues",
   "author": "@jaem1n207 (roy.jm.lee@gmail.com)",
   "license": "MIT",
   "scripts": {
@@ -18,7 +21,8 @@
     "lint-staged": "lint-staged",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(js)\" --write",
     "prepare": "husky install",
-    "commit": "cz"
+    "commit": "cz",
+    "remove:example": "rm -R example"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
@@ -30,8 +34,8 @@
     "@babel/core": "7.17.9",
     "@babel/plugin-transform-runtime": "7.17.0",
     "@babel/preset-env": "7.16.11",
-    "@commitlint/cli": "16.2.3",
-    "@commitlint/config-conventional": "16.2.1",
+    "@commitlint/cli": "16.2.4",
+    "@commitlint/config-conventional": "16.2.4",
     "babel-loader": "8.2.5",
     "clean-webpack-plugin": "4.0.0",
     "commitizen": "4.2.4",
@@ -46,7 +50,7 @@
     "html-loader": "3.1.0",
     "html-webpack-plugin": "5.5.0",
     "husky": "7.0.4",
-    "lint-staged": "12.4.0",
+    "lint-staged": "12.4.1",
     "mini-css-extract-plugin": "2.6.0",
     "node-sass": "7.0.1",
     "prettier": "2.6.2",
@@ -61,8 +65,11 @@
   "dependencies": {
     "@babel/runtime-corejs3": "7.17.9",
     "axios": "0.27.2",
-    "core-js": "3.22.2",
+    "core-js": "3.22.2"
     "dotenv": "16.0.0"
+  },
+  "engines": {
+    "node": ">=12"
   },
   "config": {
     "commitizen": {
