@@ -18,7 +18,8 @@
     "lint-staged": "lint-staged",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(js)\" --write",
     "prepare": "husky install",
-    "commit": "cz"
+    "commit": "cz",
+    "remove:example": "rm -R example"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
