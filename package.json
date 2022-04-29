@@ -1,14 +1,17 @@
 {
-  "name": "vanilla-js-bundle",
+  "name": "front-end-boilerplate",
   "version": "1.0.0",
   "main": "index.js",
+  "description": "웹 사이트를 빠르게 구축하기 위한 front-end template입니다.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaem1n207/bundle-vanilla-js"
+    "url": "https://github.com/jaem1n207/front-end-template.git"
   },
   "keywords": [
-    "boilerplate"
+    "boilerplate",
+    "javascript"
   ],
+  "bugs": "https://github.com/jaem1n207/front-end-template/issues",
   "author": "@jaem1n207 (roy.jm.lee@gmail.com)",
   "license": "MIT",
   "scripts": {
@@ -64,6 +67,9 @@
     "axios": "0.26.1",
     "core-js": "3.22.2",
     "dotenv": "16.0.0"
+  },
+  "engines": {
+    "node": ">=12"
   },
   "config": {
     "commitizen": {
