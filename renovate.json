@@ -1,10 +1,12 @@
 {
+  "schedule": ["after 7pm and before 10am every weekday", "every weekend"],
   "rangeStrategy": "pin",
   "baseBranches": ["dependency-updates"],
   "extends": [":timezone(Asia/Seoul)", ":label(renovate)", "config:base"],
   "packageRules": [
     {
-      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "description": "Automatically merge minor and patch-level updates",
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }
   ]
