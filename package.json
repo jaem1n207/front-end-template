@@ -69,7 +69,7 @@
     "dotenv": "16.0.1"
   },
   "engines": {
-    "node": ">=13"
+    "node": ">=14"
   },
   "config": {
     "commitizen": {

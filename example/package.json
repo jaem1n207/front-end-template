@@ -12,8 +12,8 @@
   "author": "@jaem1n207 (roy.jm.lee@gmail.com)",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development webpack serve --open",
-    "build": "NODE_ENV=production webpack",
+    "start": "cross-env NODE_ENV=development webpack serve --open",
+    "build": "cross-env NODE_ENV=production webpack",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(js)\"",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(js)\" --write"
   },
@@ -23,6 +23,7 @@
     "@babel/preset-env": "7.17.10",
     "babel-loader": "8.2.5",
     "clean-webpack-plugin": "4.0.0",
+    "cross-env": "^7.0.3",
     "css-loader": "6.7.1",
     "eslint": "8.15.0",
     "eslint-config-airbnb-base": "15.0.0",
