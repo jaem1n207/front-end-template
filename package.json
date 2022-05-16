@@ -15,8 +15,8 @@
   "author": "@jaem1n207 (roy.jm.lee@gmail.com)",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development webpack serve --open",
-    "build": "NODE_ENV=production webpack",
+    "start": "cross-env NODE_ENV=development webpack serve --open",
+    "build": "cross-env NODE_ENV=production webpack",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(js)\"",
     "lint-staged": "lint-staged",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(js)\" --write",
@@ -34,11 +34,12 @@
     "@babel/core": "7.17.10",
     "@babel/plugin-transform-runtime": "7.17.10",
     "@babel/preset-env": "7.17.10",
-    "@commitlint/cli": "16.2.4",
-    "@commitlint/config-conventional": "16.2.4",
+    "@commitlint/cli": "17.0.0",
+    "@commitlint/config-conventional": "17.0.0",
     "babel-loader": "8.2.5",
     "clean-webpack-plugin": "4.0.0",
     "commitizen": "4.2.4",
+    "cross-env": "^7.0.3",
     "css-loader": "6.7.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.15.0",
@@ -58,18 +59,18 @@
     "style-loader": "3.3.1",
     "terser-webpack-plugin": "5.3.1",
     "url-loader": "4.1.1",
-    "webpack": "5.72.0",
+    "webpack": "5.72.1",
     "webpack-cli": "4.9.2",
     "webpack-dev-server": "4.9.0"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "7.17.9",
     "axios": "0.27.2",
-    "core-js": "3.22.4",
-    "dotenv": "16.0.0"
+    "core-js": "3.22.5",
+    "dotenv": "16.0.1"
   },
   "engines": {
-    "node": ">=13"
+    "node": ">=14"
   },
   "config": {
     "commitizen": {
